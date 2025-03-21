@@ -8,6 +8,7 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import { LucideIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface NavMainProps {
   items: {
@@ -41,10 +42,10 @@ export function NavMain({ items }: NavMainProps) {
                 {item.items.map((item) => (
                   <SidebarMenuSubItem key={item.title}>
                     <SidebarMenuSubButton asChild isActive={item.isActive}>
-                      <a href={item.url}>
+                      <Link to={item.url}>
                         {item.icon && <item.icon className="stroke-sidebar-foreground/70" />}
                         {item.title}
-                      </a>
+                      </Link>
                     </SidebarMenuSubButton>
                   </SidebarMenuSubItem>
                 ))}

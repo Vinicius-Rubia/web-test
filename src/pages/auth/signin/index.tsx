@@ -20,12 +20,12 @@ export const Signin = () => {
             className="rounded-full size-25 object-cover"
           />
           <div className="mt-10 space-y-3">
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tighter">
+            <h3 className="text-3xl md:text-4xl lg:text-[40px] font-normal tracking-tighter">
               Gerencie seus projetos de testes com eficiência
             </h3>
 
             <Separator className="bg-white/15 w-[100px]" />
-            <p className="text-gray-300 text-md md:text-xl tracking-tight">
+            <p className="text-gray-300 text-md md:text-lg tracking-tight">
               Comece agora e otimize suas execuções de testes, acompanhando
               resultados e performance em tempo real. Centralize seus projetos e
               eleve a qualidade do seu processo de testes.
