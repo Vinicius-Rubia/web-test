@@ -27,10 +27,10 @@ export function InventoryActions({
       </h4>
       <ScrollArea className="h-[calc(90vh-350px)]">
         <div className="grid grid-cols-3 gap-4">
-          {action.actions.map((ac) => (
+          {action.actions.map((ac, index) => (
             <label
               className={`${ac.inSoon && "pointer-events-none opacity-50"} relative inset-0 border border-input bg-input/40 cursor-pointer rounded-md text-muted-foreground p-4 select-none`}
-              key={ac.id}
+              key={index}
             >
               
               <span className="flex items-center gap-2">
