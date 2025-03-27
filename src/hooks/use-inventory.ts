@@ -1,3 +1,4 @@
+import { INVENTORY_ACTIONS } from "@/constants/inventory";
 import { useState } from "react";
 
 export interface ActionState {
@@ -37,6 +38,8 @@ export function useInventory() {
     handleToggleAction,
     groupActionsBySection,
     actions,
+    setActions,
     isThereAnyAction: actions.length > 0,
+    actionsSelected: INVENTORY_ACTIONS.flatMap((ic => ic.actions)).filter((a) => actions.some((ac) => ac.actionName === a.title))
   };
 }

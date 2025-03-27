@@ -1,3 +1,5 @@
+import { LockKeyholeIcon } from "lucide-react";
+import { Badge } from "../ui/badge";
 import { Separator } from "../ui/separator";
 import { SidebarTrigger } from "../ui/sidebar";
 import { Breadcrumb } from "./breadcrumb";
@@ -13,7 +15,11 @@ export function Header() {
           <Separator orientation="vertical" className="mr-2 h-4" />
           <Breadcrumb />
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center justify-end gap-4 w-full">
+          <Badge className="bg-background text-emerald-500 border-emerald-500">
+            Em desenvolvimento
+            <LockKeyholeIcon className="stroke-emerald-500 !size-4" />
+          </Badge>
           <Notifications />
           <NavUser />
         </div>

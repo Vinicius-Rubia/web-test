@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
@@ -10,20 +11,34 @@ import {
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { INVENTORY_ACTIONS } from "@/constants/inventory";
 import { useInventory } from "@/hooks/use-inventory";
+import { setActionsSelected } from "@/store/slices/inventory-slice";
 import { Package } from "lucide-react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { InventoryActions } from "./inventory-actions";
 import { SelectedInventoryItems } from "./selected-inventory-items";
 
 export function Inventory() {
+  const [open, setOpen] = useState(false);
+
   const {
     actions,
+    setActions,
     groupActionsBySection,
     handleToggleAction,
     isThereAnyAction,
+    actionsSelected,
   } = useInventory();
 
+  const dispatch = useDispatch();
+
+  const handleAddItems = () => {
+    dispatch(setActionsSelected(actionsSelected));
+    setActions([]);
+  }
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant="outline">
           <Package />
@@ -78,7 +93,14 @@ export function Inventory() {
             <p className="text-sm text-muted-foreground mb-2 text-center">
               {isThereAnyAction && `Total de itens: (${actions.length})`}
             </p>
-            <Button disabled={!isThereAnyAction}>Adicionar itens</Button>
+            <DialogClose asChild>
+              <Button
+                disabled={!isThereAnyAction}
+                onClick={handleAddItems}
+              >
+                Adicionar itens
+              </Button>
+            </DialogClose>
           </div>
         </div>
       </DialogContent>

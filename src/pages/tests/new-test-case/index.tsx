@@ -1,4 +1,3 @@
-import { Inventory } from "@/components/inventory/inventory";
 import { Button } from "@/components/ui/button";
 import {
   Command,
@@ -24,8 +23,10 @@ import {
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronsUpDown, LockKeyholeIcon } from "lucide-react";
 import { useState } from "react";
+import { PreviewTestCase } from "./preview-test-case";
+import { TestCaseActions } from "./test-case-actions";
 
 const products = [
   {
@@ -68,16 +69,23 @@ export function NewTestCase() {
 
   return (
     <section>
-      <Tabs defaultValue="general" className="w-full space-y-4">
+      <Tabs defaultValue="test-case" className="w-full space-y-4">
         <div className="flex items-center justify-between">
           <TabsList>
-            <TabsTrigger value="general">Geral</TabsTrigger>
+            <TabsTrigger value="general" disabled>
+              Geral
+              <LockKeyholeIcon className="stroke-emerald-500" />
+            </TabsTrigger>
             <TabsTrigger value="test-case">Casos de teste</TabsTrigger>
-            <TabsTrigger value="preview">Pré-visualização</TabsTrigger>
+            <TabsTrigger value="preview" disabled>
+              Pré-visualização
+              <LockKeyholeIcon className="stroke-emerald-500" />
+            </TabsTrigger>
           </TabsList>
           <div className="flex items-center gap-4">
+            <Label>Status do teste:</Label>
             <Select defaultValue="preparation">
-              <SelectTrigger>
+              <SelectTrigger className="w-40">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -87,7 +95,6 @@ export function NewTestCase() {
                 <SelectItem value="inactive">Inativo</SelectItem>
               </SelectContent>
             </Select>
-            <Inventory />
           </div>
         </div>
         <TabsContent value="general">
@@ -168,8 +175,12 @@ export function NewTestCase() {
             </div>
           </div>
         </TabsContent>
-        <TabsContent value="test-case">Não iniciado.</TabsContent>
-        <TabsContent value="preview">Não iniciado.</TabsContent>
+        <TabsContent value="test-case">
+          <TestCaseActions />
+        </TabsContent>
+        <TabsContent value="preview">
+          <PreviewTestCase />
+        </TabsContent>
       </Tabs>
     </section>
   );

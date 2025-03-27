@@ -29,7 +29,7 @@ export function LoginForm() {
 
   async function onSubmit(data: AuthSigninType) {
     console.log(data);
-    navigate("/panel");
+    navigate("/testcases/new");
   }
 
   return (

@@ -1,5 +1,5 @@
 import { SIDEBAR_DATA } from "@/constants/sidebar-data";
-import { Settings } from "lucide-react";
+import { LockKeyholeIcon, Settings } from "lucide-react";
 import { ComponentProps } from "react";
 import { NavLink } from "react-router-dom";
 import {
@@ -28,9 +28,13 @@ export function AppSidebar({ ...props }: ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <NavLink to="/settings">
+              <NavLink
+                to="/settings"
+                className={"pointer-events-none opacity-50"}
+              >
                 <Settings />
                 Configurações
+                <LockKeyholeIcon className="stroke-emerald-500 absolute right-5" />
               </NavLink>
             </SidebarMenuButton>
           </SidebarMenuItem>
