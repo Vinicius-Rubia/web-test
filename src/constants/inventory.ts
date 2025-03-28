@@ -1,5 +1,7 @@
+import { ActionTypes } from "@/types/action-forms";
+
 export interface Action {
-  actionType: "type" | "click" | "navigate";
+  actionType: ActionTypes;
   title: string;
   description: string;
   inSoon?: boolean;
@@ -29,16 +31,14 @@ export const INVENTORY_ACTIONS: InventoryAction[] = [
         description: "Simula a digitação de um texto em um campo de entrada."
       },
       {
-        actionType: "navigate",
+        actionType: "hover",
         title: "Passar o mouse",
         description: "Simula a passagem do mouse sobre um elemento para ativar efeitos de hover.",
-        inSoon: true
       },
       {
-        actionType: "navigate",
+        actionType: "scroll",
         title: "Scrollar página",
         description: "Simula a rolagem de um contêiner ou da página até um elemento alvo.",
-        inSoon: true
       }
     ]
   },

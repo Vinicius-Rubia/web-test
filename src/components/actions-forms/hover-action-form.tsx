@@ -5,6 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { ESelectorTypes } from "@/enums/actions";
 import { Mouse, Trash, Triangle } from "lucide-react";
 import { Button } from "../ui/button";
 import {
@@ -39,7 +40,7 @@ export const HoverActionForm = ({
         <div className="flex items-center gap-4">
           <h4 className="flex items-center gap-2">
             <Mouse className="stroke-purple-500" />
-            Passar o mouse (Hover)
+            Passar o mouse
           </h4>
           <FormField
             control={control}
@@ -96,11 +97,12 @@ export const HoverActionForm = ({
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="id">Id</SelectItem>
-                      <SelectItem value="name">Name</SelectItem>
-                      <SelectItem value="css">CSS Selector</SelectItem>
-                      <SelectItem value="xpath">XPATH</SelectItem>
-                      <SelectItem value="link-text">Link Text</SelectItem>
+                      <SelectItem value={ESelectorTypes.ID}>Id</SelectItem>
+                      <SelectItem value={ESelectorTypes.NAME}>Name</SelectItem>
+                      <SelectItem value={ESelectorTypes.CSS}>CSS Selector</SelectItem>
+                      <SelectItem value={ESelectorTypes.XPATH}>XPATH</SelectItem>
+                      <SelectItem value={ESelectorTypes.LINK_TEXT}>Link Text</SelectItem>
+                      <SelectItem value={ESelectorTypes.TAG}>Tag</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />

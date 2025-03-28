@@ -32,7 +32,7 @@ export const NavigateActionForm = ({
         <div className="flex items-center gap-4">
           <h4 className="flex items-center gap-2">
             <Globe className="stroke-cyan-500" />
-            Navegar (URL)
+            Navegar
           </h4>
           <FormField
             control={control}

@@ -1,21 +1,19 @@
-export type TestCaseActionsType =
-  | ActionClick
-  | ActionType
-  | ActionNavigate
-  | ActionHover;
+import { EClickTypes, ESelectorTypes } from "@/enums/actions";
+
+export type ActionTypes = "type" | "click" | "navigate" | "hover" | "scroll";
 
 type ActionClick = {
   type: "click";
   name: string;
-  clickType: "left" | "right" | "double";
-  selectorType: "id" | "name" | "css" | "xpath" | "link-text";
+  clickType: EClickTypes;
+  selectorType: ESelectorTypes;
   selectorValue: string;
 };
 
 type ActionType = {
   type: "type";
   name: string;
-  selectorType: "id" | "name" | "css" | "xpath" | "link-text";
+  selectorType: ESelectorTypes;
   selectorValue: string;
   text: string;
 };
@@ -29,6 +27,20 @@ type ActionNavigate = {
 type ActionHover = {
   type: "hover";
   name: string;
-  selectorType: "id" | "name" | "css" | "xpath" | "link-text";
+  selectorType: ESelectorTypes;
   selectorValue: string;
 };
+
+type ActionScroll = {
+  type: "scroll";
+  name: string;
+  selectorType: ESelectorTypes;
+  selectorValue: string;
+};
+
+export type TestCaseActionsType =
+  | ActionClick
+  | ActionType
+  | ActionNavigate
+  | ActionHover
+  | ActionScroll;

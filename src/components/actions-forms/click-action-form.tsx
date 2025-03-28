@@ -5,6 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { EClickTypes, ESelectorTypes } from "@/enums/actions";
 import { MousePointerClick, Trash, Triangle } from "lucide-react";
 import { Button } from "../ui/button";
 import {
@@ -96,11 +97,12 @@ export const ClickActionForm = ({
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="id">Id</SelectItem>
-                      <SelectItem value="name">Name</SelectItem>
-                      <SelectItem value="css">CSS Selector</SelectItem>
-                      <SelectItem value="xpath">XPATH</SelectItem>
-                      <SelectItem value="link-text">Link Text</SelectItem>
+                      <SelectItem value={ESelectorTypes.ID}>Id</SelectItem>
+                      <SelectItem value={ESelectorTypes.NAME}>Name</SelectItem>
+                      <SelectItem value={ESelectorTypes.CSS}>CSS Selector</SelectItem>
+                      <SelectItem value={ESelectorTypes.XPATH}>XPATH</SelectItem>
+                      <SelectItem value={ESelectorTypes.LINK_TEXT}>Link Text</SelectItem>
+                      <SelectItem value={ESelectorTypes.TAG}>Tag</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -137,9 +139,9 @@ export const ClickActionForm = ({
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="left">Clique Esquerdo</SelectItem>
-                    <SelectItem value="right">Clique Direito</SelectItem>
-                    <SelectItem value="double">Duplo Clique</SelectItem>
+                    <SelectItem value={EClickTypes.LEFT}>Clique Esquerdo</SelectItem>
+                    <SelectItem value={EClickTypes.RIGHT}>Clique Direito</SelectItem>
+                    <SelectItem value={EClickTypes.DOUBLE}>Duplo Clique</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />

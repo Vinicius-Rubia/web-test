@@ -6,7 +6,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ESelectorTypes } from "@/enums/actions";
-import { TextCursorInput, Trash, Triangle } from "lucide-react";
+import { Scroll, Trash, Triangle } from "lucide-react";
 import { Button } from "../ui/button";
 import {
   Collapsible,
@@ -23,24 +23,24 @@ import {
 import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
 
-interface TypeActionFormProps {
+interface ScrollElementActionFormProps {
   control: any;
   index: number;
   removeAction: (index: number) => void;
 }
 
-export const TypeActionForm = ({
+export const ScrollElementActionForm = ({
   control,
   index,
   removeAction,
-}: TypeActionFormProps) => {
+}: ScrollElementActionFormProps) => {
   return (
     <Collapsible defaultOpen>
       <div className="flex items-center justify-between gap-6">
         <div className="flex items-center gap-4">
           <h4 className="flex items-center gap-2">
-            <TextCursorInput className="stroke-yellow-500" />
-            Escrever
+            <Scroll className="stroke-rose-500" />
+            Scrollar
           </h4>
           <FormField
             control={control}
@@ -123,19 +123,6 @@ export const TypeActionForm = ({
               )}
             />
           </div>
-          <FormField
-            control={control}
-            name={`actions.${index}.text`}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Texto</FormLabel>
-                <FormControl>
-                  <Input placeholder="Texto a ser escrito" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
         </div>
       </CollapsibleContent>
     </Collapsible>
