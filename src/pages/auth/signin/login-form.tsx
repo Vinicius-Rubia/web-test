@@ -1,3 +1,4 @@
+import { InputField } from "@/components/fields/input-field";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -53,22 +54,13 @@ export function LoginForm() {
           </div>
 
           <div className="grid gap-6">
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input
-                      type="email"
-                      placeholder="email@gmail.com"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+            <InputField
+              fieldControl={form.control}
+              contentClass="w-full"
+              type="email"
+              fieldName="email"
+              label="Email"
+              placeholder="email@gmail.com"
             />
 
             <FormField

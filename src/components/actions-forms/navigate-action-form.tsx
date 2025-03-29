@@ -1,18 +1,11 @@
 import { Globe, Trash, Triangle } from "lucide-react";
+import { InputField } from "../fields/input-field";
 import { Button } from "../ui/button";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "../ui/collapsible";
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "../ui/form";
-import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
 
 interface NavigateActionFormProps {
@@ -34,20 +27,13 @@ export const NavigateActionForm = ({
             <Globe className="stroke-cyan-500" />
             Navegar
           </h4>
-          <FormField
-            control={control}
-            name={`actions.${index}.name`}
-            render={({ field }) => (
-              <FormItem className="w-200">
-                <FormControl>
-                  <Input
-                    className="!bg-input/10"
-                    placeholder="Informe o nome do passo"
-                    {...field}
-                  />
-                </FormControl>
-              </FormItem>
-            )}
+          <InputField
+            fieldControl={control}
+            fieldName={`actions.${index}.name`}
+            contentClass="w-200"
+            className="!bg-input/10"
+            placeholder="Informe o nome do passo"
+            errorMessage={false}
           />
         </div>
         <div className="flex items-center gap-4">
@@ -72,18 +58,12 @@ export const NavigateActionForm = ({
       <CollapsibleContent>
         <Separator className="my-6" />
         <div className="space-y-6">
-          <FormField
-            control={control}
-            name={`actions.${index}.url`}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>URL</FormLabel>
-                <FormControl>
-                  <Input placeholder="https://example.com" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+          <InputField
+            fieldControl={control}
+            fieldName={`actions.${index}.url`}
+            label="URL"
+            contentClass="w-full"
+            placeholder="https://example.com"
           />
         </div>
       </CollapsibleContent>

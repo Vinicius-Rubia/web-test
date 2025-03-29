@@ -1,26 +1,13 @@
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { ESelectorTypes } from "@/enums/actions";
+import { SELECTORS } from "@/constants/actions";
 import { Mouse, Trash, Triangle } from "lucide-react";
+import { InputField } from "../fields/input-field";
+import { SelectField } from "../fields/select-field";
 import { Button } from "../ui/button";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "../ui/collapsible";
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "../ui/form";
-import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
 
 interface HoverActionFormProps {
@@ -42,20 +29,13 @@ export const HoverActionForm = ({
             <Mouse className="stroke-purple-500" />
             Passar o mouse
           </h4>
-          <FormField
-            control={control}
-            name={`actions.${index}.name`}
-            render={({ field }) => (
-              <FormItem className="w-200">
-                <FormControl>
-                  <Input
-                    className="!bg-input/10"
-                    placeholder="Informe o nome do passo"
-                    {...field}
-                  />
-                </FormControl>
-              </FormItem>
-            )}
+          <InputField
+            fieldControl={control}
+            fieldName={`actions.${index}.name`}
+            contentClass="w-200"
+            className="!bg-input/10"
+            placeholder="Informe o nome do passo"
+            errorMessage={false}
           />
         </div>
         <div className="flex items-center gap-4">
@@ -81,46 +61,20 @@ export const HoverActionForm = ({
         <Separator className="my-6" />
         <div className="space-y-6">
           <div className="flex items-baseline gap-4">
-            <FormField
-              control={control}
-              name={`actions.${index}.selectorType`}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Tipo de seletor</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger className="w-44">
-                        <SelectValue placeholder="Selecione o tipo de seletor" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value={ESelectorTypes.ID}>Id</SelectItem>
-                      <SelectItem value={ESelectorTypes.NAME}>Name</SelectItem>
-                      <SelectItem value={ESelectorTypes.CSS}>CSS Selector</SelectItem>
-                      <SelectItem value={ESelectorTypes.XPATH}>XPATH</SelectItem>
-                      <SelectItem value={ESelectorTypes.LINK_TEXT}>Link Text</SelectItem>
-                      <SelectItem value={ESelectorTypes.TAG}>Tag</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
+            <SelectField
+              fieldControl={control}
+              fieldName={`actions.${index}.selectorType`}
+              className="w-44"
+              label="Tipo de seletor"
+              placeholder="Selecione o tipo de seletor"
+              data={SELECTORS}
             />
-            <FormField
-              control={control}
-              name={`actions.${index}.selectorValue`}
-              render={({ field }) => (
-                <FormItem className="w-full">
-                  <FormLabel>Valor do seletor</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Valor" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+            <InputField
+              fieldControl={control}
+              contentClass="w-full"
+              fieldName={`actions.${index}.selectorValue`}
+              label="Valor do seletor"
+              placeholder="Valor"
             />
           </div>
         </div>
