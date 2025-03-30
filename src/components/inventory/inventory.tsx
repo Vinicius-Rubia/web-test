@@ -35,7 +35,7 @@ export function Inventory() {
   const handleAddItems = () => {
     dispatch(setActionsSelected(actionsSelected));
     setActions([]);
-  }
+  };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -83,10 +83,8 @@ export function Inventory() {
           <div>
             <h3 className="text-xl">Observações</h3>
             <p className="text-muted-foreground text-sm w-200">
-              A ordem que você seleciona os itens quee aparece na lateral desta
-              seção é a ordem que os itens serão adicionados ao seu caso de
-              teste. Você mudar a ordem antes de adicionar ou depois de
-              adicioná-los.
+              Após selecionar as ações, você poderá ajustar sua ordem
+              posteriormente, conforme necessário.
             </p>
           </div>
           <div>
@@ -94,10 +92,7 @@ export function Inventory() {
               {isThereAnyAction && `Total de itens: (${actions.length})`}
             </p>
             <DialogClose asChild>
-              <Button
-                disabled={!isThereAnyAction}
-                onClick={handleAddItems}
-              >
+              <Button disabled={!isThereAnyAction} onClick={handleAddItems}>
                 Adicionar itens
               </Button>
             </DialogClose>

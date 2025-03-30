@@ -9,21 +9,20 @@ interface ActionFormProps {
   control: any;
   index: number;
   actionType: TestCaseActionsType["type"];
-  removeAction: (index: number) => void;
 }
 
-export const DisplayActionForm = ({ control, index, actionType, removeAction }: ActionFormProps) => {
+export const DisplayActionForm = ({ control, index, actionType }: ActionFormProps) => {
   switch (actionType) {
     case "click":
-      return <ClickActionForm control={control} index={index} removeAction={removeAction} />;
+      return <ClickActionForm control={control} index={index}  />;
     case "type":
-      return <TypeActionForm control={control} index={index} removeAction={removeAction} />;
+      return <TypeActionForm control={control} index={index}  />;
     case "navigate":
-      return <NavigateActionForm control={control} index={index} removeAction={removeAction} />;
+      return <NavigateActionForm control={control} index={index}  />;
     case "hover":
-      return <HoverActionForm control={control} index={index} removeAction={removeAction} />;
+      return <HoverActionForm control={control} index={index}  />;
     case "scroll":
-      return <ScrollElementActionForm control={control} index={index} removeAction={removeAction} />;
+      return <ScrollElementActionForm control={control} index={index}  />;
     default:
       return null;
   }
