@@ -19,7 +19,7 @@ import { useFieldArray, useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 
 export function TestCaseActions() {
-  const actionsSelected = useSelector((state: RootState) => state.inventory.actionsSelected);
+  const actionsSelected = useSelector((state: RootState) => state.inventoryModel.actionsSelected);
 
   const form = useForm<ActionsSchemaType>({
     resolver: zodResolver(ActionsSchema),

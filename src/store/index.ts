@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import inventorReducer from "./slices/inventory-slice";
+import inventoryReducer from "./slices/inventory-slice";
+import projectsSliceReducer from "./slices/projects-slice";
 
 export const store = configureStore({
   reducer: {
-    inventory: inventorReducer,
+    inventoryModel: inventoryReducer,
+    projectsModel: projectsSliceReducer,
   },
 });
 

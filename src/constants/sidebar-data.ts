@@ -1,6 +1,5 @@
 import {
   Activity,
-  Blocks,
   Bot,
   Boxes,
   Braces,
@@ -8,7 +7,7 @@ import {
   ChartNoAxesColumn,
   FolderOpenDot,
   MoveUpRight,
-  TrendingUp,
+  TrendingUp
 } from "lucide-react";
 import { images } from "./images";
 
@@ -48,16 +47,9 @@ export const SIDEBAR_DATA = {
       url: "#",
       items: [
         {
-          title: "Novo projeto",
-          url: "#",
-          icon: FolderOpenDot,
-          inSoon: true,
-        },
-        {
           title: "Projetos",
-          url: "#",
-          icon: Blocks,
-          inSoon: true,
+          url: "/projects",
+          icon: FolderOpenDot,
         },
       ],
     },

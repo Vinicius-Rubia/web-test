@@ -31,8 +31,8 @@ export function DialogRemoveActions({ removeActions }: DialogRemoveActionsProps)
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <DialogClose asChild>
-            <Button>Cancelar</Button>
+          <DialogClose asChild >
+            <Button variant="outline">Cancelar</Button>
           </DialogClose>
           <DialogClose asChild>
             <Button variant="destructive" onClick={removeActions}>

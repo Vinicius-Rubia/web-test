@@ -15,6 +15,6 @@ export const inventorySlice = createSlice({
   },
 });
 
-export const { setActionsSelected } = inventorySlice.actions
+export const { setActionsSelected } = inventorySlice.actions;
 
-export default inventorySlice.reducer
+export default inventorySlice.reducer;
